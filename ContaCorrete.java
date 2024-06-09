@@ -37,7 +37,6 @@ public class ContaCorrente {
         System.out.println("Tentativa de saque de 200 (Conta Corrente): " + (saque1 ? "Sucesso" : "Falhou"));
         System.out.println("Saldo após saque de 200 (Conta Corrente): " + conta1.getSaldo());
 
-        // Testando Conta Corrente Especial
         ContaCorrenteEspecial conta2 = new ContaCorrenteEspecial(1000.0);
         System.out.println("\nSaldo inicial (Conta Corrente Especial): " + conta2.getSaldo());
 
@@ -51,7 +50,7 @@ public class ContaCorrente {
 }
 
 class ContaCorrenteEspecial extends ContaCorrente {
-    // Construtor
+
     public ContaCorrenteEspecial(double saldoInicial) {
         super(saldoInicial);
     }
@@ -60,7 +59,7 @@ class ContaCorrenteEspecial extends ContaCorrente {
     public boolean sacar(double quantia) {
         double taxa = quantia * 0.001;
         if (quantia + taxa <= getSaldo()) {
-            // Utiliza o método depositar da classe pai para descontar o valor do saque e da taxa
+        
             depositar(-(quantia + taxa));
             return true;
         } else {
